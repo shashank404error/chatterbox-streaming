@@ -1,9 +1,10 @@
 import torch
 import torchaudio as ta
 from chatterbox.tts import ChatterboxTTS
-
+from lora import load_lora_adapter
 # Detect device (Mac with M1/M2/M3/M4)
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+# device = "mps" if torch.backends.mps.is_available() else "cpu"
+device ="cpu"
 map_location = torch.device(device)
 
 torch_load_original = torch.load
@@ -15,10 +16,11 @@ def patched_torch_load(*args, **kwargs):
 torch.load = patched_torch_load
 
 model = ChatterboxTTS.from_pretrained(device=device)
+lora_layers = load_lora_adapter(model, "checkpoints_lora/final_lora_adapter.pt",device)
 text = "Today is the day. I want to move like a titan at dawn, sweat like a god forging lightning. No more excuses. From now on, my mornings will be temples of discipline. I am going to work out like the gods… every damn day."
 
 # If you want to synthesize with a different voice, specify the audio prompt
-AUDIO_PROMPT_PATH = "YOUR_FILE.wav"
+AUDIO_PROMPT_PATH = "raw_audio/neelesh_sir_final.wav"
 wav = model.generate(
     text, 
     audio_prompt_path=AUDIO_PROMPT_PATH,

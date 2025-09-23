@@ -2,7 +2,7 @@ import os
 import argparse
 from pydub import AudioSegment
 
-# python preprocess_audio.py --input my_audio.wav --output audio_data --clip_length 15 --overlap 1
+# python preprocess_audio.py --input raw_audio/neelesh_sir_final.wav --output audio_data --clip_length 15 --overlap 1
 
 def split_and_normalize(audio_path, out_dir, clip_length=15_000, overlap=1_000):
     """
