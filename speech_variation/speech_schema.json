@@ -1,0 +1,29 @@
+[
+  {
+    "text": "तुम्हें लगेगा",
+    "exaggeration": 0.9,
+    "cfg": 0.55
+  },
+  {
+    "text": "...",
+    "exaggeration": 0.0,
+    "cfg": 0.0,
+    "duration_ms": 400
+  },
+  {
+    "text": "अजीब है",
+    "exaggeration": 1.0,
+    "cfg": 0.6
+  },
+  {
+    "text": "पर हो सकता है।",
+    "exaggeration": 0.9,
+    "cfg": 0.55
+  },
+  {
+    "text": "...",
+    "exaggeration": 0.0,
+    "cfg": 0.0,
+    "duration_ms": 800
+  }
+]
